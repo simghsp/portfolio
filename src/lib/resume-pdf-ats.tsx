@@ -34,7 +34,8 @@ export function AtsResumeDocument() {
         <Text style={styles.name}>{profile.name}</Text>
         <Text style={styles.headline}>{profile.headline}</Text>
         <Text style={styles.meta}>
-          {profile.email} | github.com/{profile.githubUser} | linkedin.com/in/sapna-singh-26a07a244
+          {profile.location} | {profile.email} | github.com/{profile.githubUser} |
+          linkedin.com/in/sapna-singh-26a07a244
         </Text>
         <Text style={styles.meta}>{profile.coreCompetencies.join(" | ")}</Text>
 

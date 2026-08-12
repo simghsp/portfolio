@@ -57,6 +57,7 @@ export function ResumeDocument() {
         <Text style={styles.name}>{profile.name}</Text>
         <Text style={styles.headline}>{profile.headline}</Text>
         <View style={styles.contactRow}>
+          <Text>{profile.location}</Text>
           <Text>{profile.email}</Text>
           <Text>github.com/{profile.githubUser}</Text>
           <Text>linkedin.com/in/sapna-singh-26a07a244</Text>

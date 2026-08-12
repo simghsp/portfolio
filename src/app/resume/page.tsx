@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Download, FileText, Mail } from "lucide-react";
+import { Download, FileText, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,9 @@ export default function ResumePage() {
             <h1 className="text-3xl font-bold text-foreground print:text-[#111318]">{profile.name}</h1>
             <p className="mt-1 text-base text-accent print:text-[#0f766e]">{profile.headline}</p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted print:text-[#444]">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={14} aria-hidden="true" /> {profile.location}
+              </span>
               <span className="inline-flex items-center gap-1.5">
                 <Mail size={14} aria-hidden="true" /> {profile.email}
               </span>

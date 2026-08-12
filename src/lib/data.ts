@@ -119,7 +119,7 @@ export const projects: Project[] = [
     contribution:
       "Built both the client and server: role-based dashboards, the JWT auth flow, the resume upload pipeline, and the ownership checks that keep employers scoped to their own job postings.",
     resumeBullets: [
-      "Engineered a full-stack MERN job board with JWT authentication and role-based access control for candidate and employer accounts",
+      "Delivered a full-stack MERN job board with JWT authentication and role-based access control for candidate and employer accounts",
       "Implemented ownership-scoped authorization defending against broken-object-level-authorization (IDOR) — every applications query is scoped to the authenticated employer's own postings",
       "Built a resume-upload pipeline with server-side file-type/size validation and bcrypt-hashed password storage",
     ],
@@ -149,8 +149,8 @@ export const projects: Project[] = [
     contribution:
       "Built the full stack end to end. This project predates the auth/RBAC work in AegisFlow and JobBoard — it's included deliberately as the foundational full-stack rep, not a security showcase.",
     resumeBullets: [
-      "Built a full-stack MERN expense tracker with a REST API and real-time MongoDB Atlas persistence",
-      "Implemented CRUD operations for user registration and expense logging, using environment-based configuration to keep credentials out of source control",
+      "Developed a full-stack MERN expense tracker with a REST API and real-time MongoDB Atlas persistence",
+      "Established CRUD operations for user registration and expense logging, using environment-based configuration to keep credentials out of source control",
     ],
     github: "https://github.com/simghsp/Expense-Manager-MERN",
     status: "Foundational — no authentication layer yet",
@@ -183,7 +183,7 @@ export const securityLab: Project[] = [
     contribution:
       "Built solo as a self-contained, standard-library-only exercise in password security fundamentals — deliberately no web framework, database, or third-party dependency.",
     resumeBullets: [
-      "Built an offline Python/Tkinter password auditing tool implementing leetspeak-aware pattern matching to defeat naive substitution bypasses in dictionary-attack defenses",
+      "Created an offline Python/Tkinter password auditing tool implementing leetspeak-aware pattern matching to defeat naive substitution bypasses in dictionary-attack defenses",
       "Generated cryptographically secure (CSPRNG) replacement passwords using Python's secrets module instead of the non-cryptographic random module",
     ],
     github: "https://github.com/simghsp/password-strength-checker",

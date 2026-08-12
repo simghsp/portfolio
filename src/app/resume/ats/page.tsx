@@ -44,7 +44,8 @@ export default function AtsResumePage() {
           <h1 className="text-2xl font-bold text-foreground print:text-[#111318]">{profile.name}</h1>
           <p className="mt-1 text-sm text-muted print:text-[#333]">{profile.headline}</p>
           <p className="mt-3 text-sm text-muted print:text-[#333]">
-            {profile.email} | github.com/{profile.githubUser} | linkedin.com/in/sapna-singh-26a07a244
+            {profile.location} | {profile.email} | github.com/{profile.githubUser} |
+            linkedin.com/in/sapna-singh-26a07a244
           </p>
           <p className="mt-3 text-sm text-muted print:text-[#333]">
             {profile.coreCompetencies.join(" | ")}
