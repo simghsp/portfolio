@@ -32,11 +32,13 @@ export function Button({
   external,
   type,
   onClick,
+  disabled,
 }: CommonProps & {
   href?: string;
   external?: boolean;
   type?: "button" | "submit";
   onClick?: () => void;
+  disabled?: boolean;
 }) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
@@ -56,7 +58,7 @@ export function Button({
   }
 
   return (
-    <button type={type ?? "button"} onClick={onClick} className={classes}>
+    <button type={type ?? "button"} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   );
