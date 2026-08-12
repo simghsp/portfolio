@@ -3,9 +3,12 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ProjectCard } from "@/components/project-card";
+import { getRepoActivity } from "@/lib/github";
 import { securityLab } from "@/lib/data";
 
-export function SecurityLab() {
+export async function SecurityLab() {
+  const activity = await Promise.all(securityLab.map((p) => getRepoActivity(p.github)));
+
   return (
     <section id="security-lab" className="border-t border-border py-24 sm:py-28" aria-label="Security research and labs">
       <Container>
@@ -21,9 +24,9 @@ export function SecurityLab() {
         </Reveal>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {securityLab.map((project) => (
+          {securityLab.map((project, i) => (
             <Reveal key={project.slug}>
-              <ProjectCard project={project} featured />
+              <ProjectCard project={project} featured activity={activity[i]} />
             </Reveal>
           ))}
         </div>

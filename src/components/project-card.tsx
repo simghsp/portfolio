@@ -1,10 +1,19 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon } from "@/components/icons";
+import { timeAgo, type RepoActivity } from "@/lib/github";
 import type { Project } from "@/lib/data";
 
-export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+export function ProjectCard({
+  project,
+  featured = false,
+  activity = null,
+}: {
+  project: Project;
+  featured?: boolean;
+  activity?: RepoActivity | null;
+}) {
   return (
     <Card className={featured ? "border-accent/20" : undefined}>
       <div className="flex items-start justify-between gap-4">
@@ -22,6 +31,18 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
           <GithubIcon size={16} />
         </a>
       </div>
+
+      {activity ? (
+        <div className="mono mt-3 flex items-center gap-3 text-xs text-muted-dim">
+          <span>Updated {timeAgo(activity.pushedAt)}</span>
+          {activity.stars > 0 ? (
+            <span className="inline-flex items-center gap-1">
+              <Star size={11} aria-hidden="true" />
+              {activity.stars}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
 
       {project.status ? (
         <p className="mono mt-3 text-xs text-muted-dim">{project.status}</p>
