@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   name: { fontSize: 21, fontWeight: 700 },
   headline: { fontSize: 11.5, color: accent, marginTop: 3 },
   contactRow: { flexDirection: "row", gap: 14, marginTop: 8, fontSize: 8.5, color: muted },
+  competencies: { fontSize: 8.5, color: accent, marginTop: 6, lineHeight: 1.4 },
   divider: { borderBottomWidth: 1, borderBottomColor: "#ccc", marginTop: 12, marginBottom: 12 },
   body: { flexDirection: "row", gap: 22 },
   sidebar: { width: "31%" },
@@ -60,6 +61,7 @@ export function ResumeDocument() {
           <Text>github.com/{profile.githubUser}</Text>
           <Text>linkedin.com/in/sapna-singh-26a07a244</Text>
         </View>
+        <Text style={styles.competencies}>{profile.coreCompetencies.join(" · ")}</Text>
 
         <View style={styles.divider} />
 

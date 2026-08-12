@@ -10,6 +10,15 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/sapna-singh-26a07a244/",
   location: "India",
   education: "B.Sc. Information Technology",
+  // One-line scan strip for the resume, under the name/headline — every
+  // term here is directly backed by a project below, not aspirational.
+  coreCompetencies: [
+    "Application Security",
+    "API Security (OWASP Top 10)",
+    "Authentication & Authorization (JWT/RBAC)",
+    "Secure Backend Architecture",
+    "Full-Stack Development (React, Node.js, Python)",
+  ],
 };
 
 export type Project = {
@@ -73,10 +82,10 @@ export const projects: Project[] = [
     contribution:
       "Designed and built the full monorepo solo: the detection/behavior/risk/correlation/response pipeline, the Prisma schema and repositories, the Fastify APIs, the React SOC dashboard, and 113 automated tests (unit, WAF, live integration, live attack-simulation).",
     resumeBullets: [
-      "Designed and built a full-stack API security gateway (TypeScript, Fastify, React) implementing an 8-family WAF rule engine, behavioral anomaly detection, and 0–100 explainable risk scoring",
-      "Built a dual-trust-domain JWT system separating analyst and end-user sessions, with server-enforced RBAC on every write endpoint",
-      "Implemented object-level authorization and timing-safe login to prevent IDOR and user-enumeration attacks",
-      "Shipped with 113 automated tests (unit, WAF, live integration, attack-simulation) and a React SOC dashboard reading from a live PostgreSQL audit trail",
+      "Architected and built a full-stack API security gateway (TypeScript, Fastify, React) with an 8-family WAF rule engine covering OWASP Top 10 attack classes (SQLi, XSS, command injection, path traversal) plus behavioral anomaly detection and 0–100 explainable risk scoring",
+      "Engineered a dual-trust-domain JWT authentication system separating analyst and end-user sessions, enforcing RBAC server-side on every write endpoint rather than trusting client-side UI checks",
+      "Defended against IDOR and user-enumeration attacks by design, via object-level authorization checks and timing-safe login comparisons",
+      "Validated the full detection pipeline with 113 automated tests (unit, WAF, live integration, attack-simulation) and built a React SOC dashboard reading live from a PostgreSQL audit trail",
     ],
     github: "https://github.com/simghsp/aegisflow-security-platform",
     caseStudySlugs: ["timing-safe-login", "dual-trust-domain-jwt", "object-level-authorization"],
@@ -110,9 +119,9 @@ export const projects: Project[] = [
     contribution:
       "Built both the client and server: role-based dashboards, the JWT auth flow, the resume upload pipeline, and the ownership checks that keep employers scoped to their own job postings.",
     resumeBullets: [
-      "Built a full-stack MERN job board with JWT authentication and role-based access control for candidate and employer accounts",
-      "Implemented ownership-scoped authorization preventing employers from accessing other employers' applicant data",
-      "Added a resume-upload pipeline with file-type/size validation and bcrypt-hashed password storage",
+      "Engineered a full-stack MERN job board with JWT authentication and role-based access control for candidate and employer accounts",
+      "Implemented ownership-scoped authorization defending against broken-object-level-authorization (IDOR) — every applications query is scoped to the authenticated employer's own postings",
+      "Built a resume-upload pipeline with server-side file-type/size validation and bcrypt-hashed password storage",
     ],
     github: "https://github.com/simghsp/jobBoard",
     caseStudySlugs: ["ownership-based-authorization"],
@@ -141,7 +150,7 @@ export const projects: Project[] = [
       "Built the full stack end to end. This project predates the auth/RBAC work in AegisFlow and JobBoard — it's included deliberately as the foundational full-stack rep, not a security showcase.",
     resumeBullets: [
       "Built a full-stack MERN expense tracker with a REST API and real-time MongoDB Atlas persistence",
-      "Implemented CRUD operations for user registration and expense logging with environment-based configuration",
+      "Implemented CRUD operations for user registration and expense logging, using environment-based configuration to keep credentials out of source control",
     ],
     github: "https://github.com/simghsp/Expense-Manager-MERN",
     status: "Foundational — no authentication layer yet",
@@ -174,8 +183,8 @@ export const securityLab: Project[] = [
     contribution:
       "Built solo as a self-contained, standard-library-only exercise in password security fundamentals — deliberately no web framework, database, or third-party dependency.",
     resumeBullets: [
-      "Built an offline Python/Tkinter tool implementing leetspeak-aware pattern detection to defeat naive password-cracking bypasses",
-      "Used Python's secrets module for cryptographically secure (CSPRNG) password generation",
+      "Built an offline Python/Tkinter password auditing tool implementing leetspeak-aware pattern matching to defeat naive substitution bypasses in dictionary-attack defenses",
+      "Generated cryptographically secure (CSPRNG) replacement passwords using Python's secrets module instead of the non-cryptographic random module",
     ],
     github: "https://github.com/simghsp/password-strength-checker",
   },
@@ -316,7 +325,14 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "Infrastructure",
-    items: ["Docker", "Docker Compose", "Nginx", "pnpm workspaces (monorepo)", "Git/GitHub"],
+    items: [
+      "Docker",
+      "Docker Compose",
+      "Nginx",
+      "CI/CD (GitHub Actions + Vercel)",
+      "pnpm workspaces (monorepo)",
+      "Git/GitHub",
+    ],
   },
 ];
 

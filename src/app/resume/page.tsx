@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Download, Mail } from "lucide-react";
+import { Download, FileText, Mail } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { profile, projects, securityLab, skills, learning } from "@/lib/data";
 
@@ -22,7 +23,11 @@ export default function ResumePage() {
             A recruiter-friendly summary generated from real project work — not a claim of employment
             history that doesn&rsquo;t exist.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
+            <Button href="/resume/ats" variant="ghost" size="sm">
+              <FileText size={15} aria-hidden="true" />
+              ATS-friendly version
+            </Button>
             <Button href="/resume/pdf" external variant="secondary" size="sm">
               <Download size={15} aria-hidden="true" />
               Download PDF
@@ -47,6 +52,16 @@ export default function ResumePage() {
                 <LinkedinIcon size={14} /> linkedin.com/in/sapna-singh-26a07a244
               </span>
             </div>
+            <div className="mt-4 flex flex-wrap gap-1.5 print:hidden">
+              {profile.coreCompetencies.map((c) => (
+                <Badge key={c} variant="accent">
+                  {c}
+                </Badge>
+              ))}
+            </div>
+            <p className="mt-4 hidden text-[13px] leading-relaxed text-[#333] print:block">
+              {profile.coreCompetencies.join(" · ")}
+            </p>
           </header>
 
           {/* Two-column body */}
