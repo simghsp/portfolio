@@ -27,6 +27,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Data integrity check
+        run: pnpm check:data
+
       # Type checking runs as part of `next build` (it needs Next's
       # generated ambient types, e.g. LayoutProps, which only exist once the
       # framework has bootstrapped) — a standalone `tsc --noEmit` step fails

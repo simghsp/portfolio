@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PrintButton } from "@/components/print-button";
+import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { profile, projects, securityLab, skills, learning } from "@/lib/data";
 
@@ -21,7 +22,13 @@ export default function ResumePage() {
             A recruiter-friendly summary generated from real project work — not a claim of employment
             history that doesn&rsquo;t exist.
           </p>
-          <PrintButton />
+          <div className="flex gap-3">
+            <Button href="/resume/pdf" external variant="secondary" size="sm">
+              <Download size={15} aria-hidden="true" />
+              Download PDF
+            </Button>
+            <PrintButton />
+          </div>
         </div>
 
         <article className="rounded-2xl border border-border bg-surface/60 p-8 sm:p-12 print:rounded-none print:border-none print:bg-white print:p-0 print:text-[#111318]">

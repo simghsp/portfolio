@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:data": "tsx scripts/check-data-integrity.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.7.1",
+    "@react-pdf/renderer": "^4.6.0",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^13.0.0",
@@ -31,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   },
   "packageManager": "pnpm@11.9.0"
