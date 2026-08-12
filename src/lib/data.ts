@@ -18,11 +18,16 @@ export type Project = {
   tagline: string;
   category: "production" | "lab";
   featured: boolean;
+  date: string;
   problem: string;
   architecture: string[];
   tech: string[];
   security: string[];
   contribution: string;
+  // Tight, resume-appropriate bullets — same underlying facts as `security`
+  // and `contribution` above, rewritten as accomplishment statements
+  // instead of narrative prose. Used by /resume and /resume/pdf.
+  resumeBullets: string[];
   github: string;
   status?: string;
   caseStudySlugs?: string[];
@@ -36,6 +41,7 @@ export const projects: Project[] = [
       "A working API security gateway — WAF, behavioral analysis, risk scoring, and threat correlation in front of a real protected API, with a live SOC dashboard.",
     category: "production",
     featured: true,
+    date: "Aug 2026",
     problem:
       "Most portfolio security projects are a static rules list or a dashboard wired to fake numbers. AegisFlow is a real decision pipeline: every request is normalized, scored, and either allowed, challenged, or blocked in milliseconds — and every number on the dashboard is a live query against a real Postgres audit trail, not a placeholder.",
     architecture: [
@@ -66,6 +72,12 @@ export const projects: Project[] = [
     ],
     contribution:
       "Designed and built the full monorepo solo: the detection/behavior/risk/correlation/response pipeline, the Prisma schema and repositories, the Fastify APIs, the React SOC dashboard, and 113 automated tests (unit, WAF, live integration, live attack-simulation).",
+    resumeBullets: [
+      "Designed and built a full-stack API security gateway (TypeScript, Fastify, React) implementing an 8-family WAF rule engine, behavioral anomaly detection, and 0–100 explainable risk scoring",
+      "Built a dual-trust-domain JWT system separating analyst and end-user sessions, with server-enforced RBAC on every write endpoint",
+      "Implemented object-level authorization and timing-safe login to prevent IDOR and user-enumeration attacks",
+      "Shipped with 113 automated tests (unit, WAF, live integration, attack-simulation) and a React SOC dashboard reading from a live PostgreSQL audit trail",
+    ],
     github: "https://github.com/simghsp/aegisflow-security-platform",
     caseStudySlugs: ["timing-safe-login", "dual-trust-domain-jwt", "object-level-authorization"],
   },
@@ -76,6 +88,7 @@ export const projects: Project[] = [
       "A full-stack MERN job board with separate candidate and employer roles, resume uploads, and email notifications.",
     category: "production",
     featured: true,
+    date: "Nov 2025",
     problem:
       "A job board has to keep two roles — candidates and employers — looking at the same job/application data through very different, non-overlapping permissions: an employer must never see another employer's applicants, and a candidate must never post jobs.",
     architecture: [
@@ -96,6 +109,11 @@ export const projects: Project[] = [
     ],
     contribution:
       "Built both the client and server: role-based dashboards, the JWT auth flow, the resume upload pipeline, and the ownership checks that keep employers scoped to their own job postings.",
+    resumeBullets: [
+      "Built a full-stack MERN job board with JWT authentication and role-based access control for candidate and employer accounts",
+      "Implemented ownership-scoped authorization preventing employers from accessing other employers' applicant data",
+      "Added a resume-upload pipeline with file-type/size validation and bcrypt-hashed password storage",
+    ],
     github: "https://github.com/simghsp/jobBoard",
     caseStudySlugs: ["ownership-based-authorization"],
   },
@@ -106,6 +124,7 @@ export const projects: Project[] = [
       "A MERN expense tracker with real-time MongoDB Atlas persistence and a clean CRUD REST API.",
     category: "production",
     featured: true,
+    date: "Jan 2026",
     problem:
       "Straightforward but foundational: register a user, let them log expenses by name/amount/category/date, and keep the database in sync with every change — the kind of correct, boring CRUD plumbing every larger backend is built on top of.",
     architecture: [
@@ -120,6 +139,10 @@ export const projects: Project[] = [
     ],
     contribution:
       "Built the full stack end to end. This project predates the auth/RBAC work in AegisFlow and JobBoard — it's included deliberately as the foundational full-stack rep, not a security showcase.",
+    resumeBullets: [
+      "Built a full-stack MERN expense tracker with a REST API and real-time MongoDB Atlas persistence",
+      "Implemented CRUD operations for user registration and expense logging with environment-based configuration",
+    ],
     github: "https://github.com/simghsp/Expense-Manager-MERN",
     status: "Foundational — no authentication layer yet",
   },
@@ -133,6 +156,7 @@ export const securityLab: Project[] = [
       "An offline Tkinter tool that scores password strength with an explainable 0–100 heuristic and generates cryptographically secure replacements.",
     category: "lab",
     featured: true,
+    date: "Aug 2026",
     problem:
       "Show — not just state — how real password crackers think: dictionary attacks, keyboard-walk patterns, and leetspeak substitution (P@ssw0rd is still 'password' to an attacker's tooling), then generate something that isn't.",
     architecture: [
@@ -149,6 +173,10 @@ export const securityLab: Project[] = [
     ],
     contribution:
       "Built solo as a self-contained, standard-library-only exercise in password security fundamentals — deliberately no web framework, database, or third-party dependency.",
+    resumeBullets: [
+      "Built an offline Python/Tkinter tool implementing leetspeak-aware pattern detection to defeat naive password-cracking bypasses",
+      "Used Python's secrets module for cryptographically secure (CSPRNG) password generation",
+    ],
     github: "https://github.com/simghsp/password-strength-checker",
   },
 ];
