@@ -27,6 +27,11 @@ export type ExperienceEntry = {
   title: string;
   company: string;
   dateRange: string;
+  // ISO dates, kept alongside the display string so total experience can be
+  // computed live (via getMonthsOfExperience below) instead of hardcoding a
+  // number that quietly goes stale.
+  startDate: string;
+  endDate: string | null; // null = ongoing
   bullets: string[];
 };
 
@@ -36,6 +41,8 @@ export const experience: ExperienceEntry[] = [
     title: "Junior Software Developer",
     company: "Bharatron Technologies Pvt Ltd",
     dateRange: "May 2026 – Present",
+    startDate: "2026-05-06",
+    endDate: null,
     bullets: [
       "Contributing to production web applications using the MERN stack, TypeScript, Next.js, and Tailwind CSS",
     ],
@@ -44,11 +51,26 @@ export const experience: ExperienceEntry[] = [
     title: "Junior Software Developer Intern",
     company: "Nexcore Alliance LLP",
     dateRange: "Feb 2026 – Apr 2026",
+    startDate: "2026-02-04",
+    endDate: "2026-04-10",
     bullets: [
       "Contributed to production-level applications built with the MERN stack and TypeScript",
     ],
   },
 ];
+
+// Total professional experience across all roles, in whole months, rounded
+// down (conservative — never overstates). Recomputed on every request, so
+// it stays accurate without manual updates.
+export function getMonthsOfExperience(): number {
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const totalDays = experience.reduce((sum, job) => {
+    const start = new Date(job.startDate).getTime();
+    const end = (job.endDate ? new Date(job.endDate) : new Date()).getTime();
+    return sum + (end - start) / msPerDay;
+  }, 0);
+  return Math.floor(totalDays / 30.44);
+}
 
 export type Project = {
   slug: string;
@@ -403,6 +425,7 @@ export const learning = {
 
 export const nav = [
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Security", href: "#security-mindset" },
   { label: "Projects", href: "#projects" },
   { label: "Case Studies", href: "#case-studies" },

@@ -2,7 +2,9 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { Card } from "@/components/ui/card";
-import { learning } from "@/lib/data";
+import { experience, learning } from "@/lib/data";
+
+const currentRole = experience[0];
 
 export function About() {
   return (
@@ -15,8 +17,8 @@ export function About() {
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
           <Reveal delay={0.05} className="space-y-5 text-base leading-relaxed text-muted">
             <p>
-              I&rsquo;m a B.Sc. Information Technology student who started, like most
-              developers, by learning to build things: React frontends, REST
+              I&rsquo;m a Junior Software Developer at {currentRole.company}, and before that I was
+              like most developers: I started by learning to build things — React frontends, REST
               APIs, database schemas. What kept pulling my attention past
               &ldquo;does it work&rdquo; was a different question — <em className="text-foreground">who is allowed
               to do this, and what happens if they aren&rsquo;t?</em>
@@ -56,8 +58,9 @@ export function About() {
                 Currently
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground">
-                Specializing toward Application Security / Backend Security
-                after two years of full-stack and backend development.
+                {currentRole.title} at {currentRole.company} ({currentRole.dateRange}), building
+                production applications with the MERN stack and Next.js — while specializing toward
+                Application Security in my own project time.
               </p>
 
               <div className="mt-6 border-t border-border pt-6">
