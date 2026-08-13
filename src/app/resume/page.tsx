@@ -5,7 +5,7 @@ import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { profile, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -20,8 +20,8 @@ export default function ResumePage() {
       <Container className="max-w-4xl">
         <div className="mb-8 flex items-center justify-between print:hidden">
           <p className="text-sm text-muted">
-            A recruiter-friendly summary generated from real project work — not a claim of employment
-            history that doesn&rsquo;t exist.
+            A recruiter-friendly summary of real project and work experience — nothing here is
+            fabricated or embellished.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button href="/resume/ats" variant="ghost" size="sm">
@@ -116,11 +116,43 @@ export default function ResumePage() {
                   Summary
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted print:text-[#222]">
-                  Full-stack developer specializing toward Application Security. Built AegisFlow, a
-                  working API threat-detection gateway with a WAF rule engine, behavioral risk
-                  scoring, and a live SOC dashboard — backed by 113 automated tests. Comfortable across
-                  the stack: REST APIs, JWT/RBAC authorization, and relational and document databases.
+                  Junior Software Developer at Bharatron Technologies, building production web
+                  applications with the MERN stack, TypeScript, and Next.js. Specializing toward
+                  Application Security — built AegisFlow, a working API threat-detection gateway with
+                  a WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
+                  automated tests.
                 </p>
+              </section>
+
+              <section>
+                <h2 className="mono text-xs font-semibold uppercase tracking-widest text-muted-dim print:text-[#666]">
+                  Experience
+                </h2>
+                <div className="mt-3 space-y-4">
+                  {experience.map((job) => (
+                    <div key={`${job.company}-${job.title}`}>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                        <h3 className="text-sm font-semibold text-foreground print:text-[#111318]">
+                          {job.title} · {job.company}
+                        </h3>
+                        <span className="mono text-xs text-muted-dim print:text-[#666]">
+                          {job.dateRange}
+                        </span>
+                      </div>
+                      <ul className="mt-1.5 space-y-1">
+                        {job.bullets.map((bullet) => (
+                          <li
+                            key={bullet}
+                            className="flex gap-2 text-[13px] leading-relaxed text-muted print:text-[#333]"
+                          >
+                            <span aria-hidden="true">•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </section>
 
               <section>

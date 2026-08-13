@@ -1,5 +1,7 @@
-// All data below is sourced directly from github.com/simghsp repositories,
-// their READMEs, source files, and commit history. Nothing here is invented.
+// Project/security data below is sourced directly from github.com/simghsp
+// repositories, their READMEs, source files, and commit history. Employment
+// data in `experience` is sourced directly from the person it's about.
+// Nothing here is invented.
 
 export const profile = {
   name: "Sapna Singh",
@@ -20,6 +22,33 @@ export const profile = {
     "Full-Stack Development (React, Node.js, Python)",
   ],
 };
+
+export type ExperienceEntry = {
+  title: string;
+  company: string;
+  dateRange: string;
+  bullets: string[];
+};
+
+// Reverse chronological, most recent first.
+export const experience: ExperienceEntry[] = [
+  {
+    title: "Junior Software Developer",
+    company: "Bharatron Technologies Pvt Ltd",
+    dateRange: "May 2026 – Present",
+    bullets: [
+      "Contributing to production web applications using the MERN stack, TypeScript, Next.js, and Tailwind CSS",
+    ],
+  },
+  {
+    title: "Junior Software Developer Intern",
+    company: "Nexcore Alliance LLP",
+    dateRange: "Feb 2026 – Apr 2026",
+    bullets: [
+      "Contributed to production-level applications built with the MERN stack and TypeScript",
+    ],
+  },
+];
 
 export type Project = {
   slug: string;

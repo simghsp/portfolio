@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { profile, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
 
 // "Helvetica" is one of @react-pdf/renderer's built-in standard PDF fonts
 // (along with Times-Roman and Courier) — no font file or registration
@@ -94,11 +94,32 @@ export function ResumeDocument() {
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Summary</Text>
               <Text style={styles.paragraph}>
-                Full-stack developer specializing toward Application Security. Built AegisFlow, a
-                working API threat-detection gateway with a WAF rule engine, behavioral risk scoring,
-                and a live SOC dashboard — backed by 113 automated tests. Comfortable across the
-                stack: REST APIs, JWT/RBAC authorization, and relational and document databases.
+                Junior Software Developer at Bharatron Technologies, building production web
+                applications with the MERN stack, TypeScript, and Next.js. Specializing toward
+                Application Security — built AegisFlow, a working API threat-detection gateway with
+                a WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
+                automated tests.
               </Text>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Experience</Text>
+              {experience.map((job) => (
+                <View key={`${job.company}-${job.title}`} style={styles.projectBlock}>
+                  <View style={styles.projectHeaderRow}>
+                    <Text style={styles.projectName}>
+                      {job.title} · {job.company}
+                    </Text>
+                    <Text style={styles.projectDate}>{job.dateRange}</Text>
+                  </View>
+                  {job.bullets.map((bullet) => (
+                    <View key={bullet} style={styles.bulletRow}>
+                      <Text style={styles.bulletMark}>•</Text>
+                      <Text style={styles.bulletText}>{bullet}</Text>
+                    </View>
+                  ))}
+                </View>
+              ))}
             </View>
 
             <View style={styles.section}>

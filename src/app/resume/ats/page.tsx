@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Download, Layers } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { profile, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume (ATS-friendly)",
@@ -55,11 +55,32 @@ export default function AtsResumePage() {
             Summary
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted print:text-[#222]">
-            Full-stack developer specializing toward Application Security. Built AegisFlow, a
-            working API threat-detection gateway with a WAF rule engine, behavioral risk scoring,
-            and a live SOC dashboard, backed by 113 automated tests. Experienced across the stack:
-            REST APIs, JWT/RBAC authorization, and relational and document databases.
+            Junior Software Developer at Bharatron Technologies, building production web
+            applications with the MERN stack, TypeScript, and Next.js. Specializing toward
+            Application Security — built AegisFlow, a working API threat-detection gateway with a
+            WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
+            automated tests.
           </p>
+
+          <h2 className="mt-7 text-sm font-bold uppercase tracking-wide text-foreground print:text-[#111318]">
+            Experience
+          </h2>
+          <div className="mt-2 space-y-4">
+            {experience.map((job) => (
+              <div key={`${job.company}-${job.title}`}>
+                <p className="text-sm font-semibold text-foreground print:text-[#111318]">
+                  {job.title} — {job.company} ({job.dateRange})
+                </p>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet} className="text-sm leading-relaxed text-muted print:text-[#333]">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
           <h2 className="mt-7 text-sm font-bold uppercase tracking-wide text-foreground print:text-[#111318]">
             Skills
