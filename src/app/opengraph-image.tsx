@@ -34,7 +34,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ width: 24, height: 2, background: "#4dd6e0" }} />
-          Full-Stack → Security Engineering
+          Junior Software Developer → Security Engineering
         </div>
         <div style={{ fontSize: 68, fontWeight: 700, marginTop: 28, lineHeight: 1.15 }}>
           {siteConfig.name}

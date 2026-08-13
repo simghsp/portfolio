@@ -5,7 +5,7 @@ export const siteConfig = {
   name: "Sapna Singh",
   title: "Sapna Singh — Full-Stack Developer building toward Security Engineering",
   description:
-    "Portfolio of Sapna Singh, a full-stack developer transitioning into Application Security. Projects include AegisFlow, a real API threat detection and SOC platform, plus JWT/RBAC-driven full-stack applications.",
+    "Portfolio of Sapna Singh, a Junior Software Developer at Bharatron Technologies transitioning into Application Security. Projects include AegisFlow, a real API threat detection and SOC platform, plus JWT/RBAC-driven full-stack applications.",
   keywords: [
     "Sapna Singh",
     "Sapna Singh developer",

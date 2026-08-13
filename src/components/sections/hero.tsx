@@ -37,32 +37,35 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
       />
 
       <Container>
-        <motion.div {...fadeUp(0)}>
+        {/*
+          Badge, heading, and subtext render immediately (no Framer Motion
+          fade-in) on purpose: the subtext paragraph is this page's Largest
+          Contentful Paint element, and animating its opacity/transform via
+          JS gated its "final" paint behind hydration + animation completion
+          — measured at a ~2.5s render delay in Lighthouse. Everything below
+          the fold still animates in; only the LCP-critical content above
+          it renders statically.
+        */}
+        <div>
           <Badge variant="accent" className="mb-6">
             <ShieldCheck size={12} className="mr-1" aria-hidden="true" />
             Junior Software Developer → Security Engineering
           </Badge>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          {...fadeUp(0.05)}
-          className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl"
-        >
+        <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
           Full-Stack Developer building toward{" "}
           <span className="text-gradient">Security Engineering.</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          {...fadeUp(0.12)}
-          className="mt-6 max-w-2xl text-lg leading-relaxed text-muted"
-        >
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
           Currently building production applications at{" "}
           <span className="text-foreground">Bharatron Technologies</span>. Outside that, I build
           backend systems, APIs, and authentication flows — then spend just as much time reasoning
           about how they fail. That path, from shipping full-stack products to hardening the access
           control and API boundaries inside them, is what&rsquo;s pulling me toward Application
           Security.
-        </motion.p>
+        </p>
 
         <motion.div
           {...fadeUp(0.16)}
