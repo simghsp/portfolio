@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sapna Singh — Portfolio
 
-## Getting Started
+Live at **[portfolio-ashy-eight-i7xe4ihgl4.vercel.app](https://portfolio-ashy-eight-i7xe4ihgl4.vercel.app)**.
 
-First, run the development server:
+A portfolio built around a specific, verifiable story: full-stack development
+experience moving toward Application Security. Every project claim, security
+case study, and skill listed traces back to a real repository, a real
+commit, or work I can speak to directly — nothing here is invented. See
+[`src/lib/data.ts`](src/lib/data.ts) for the single source of truth all of
+that content is generated from.
+
+## What's on the site
+
+- **Home** (`/`) — hero, work experience, security mindset, featured
+  projects (with live "updated N ago" data pulled from the GitHub API),
+  security case studies, a security research lab, skills, and contact.
+- **Resume** (`/resume`) — a two-column recruiter-facing summary, plus a
+  downloadable PDF generated server-side with `@react-pdf/renderer`.
+- **ATS resume** (`/resume/ats`) — a deliberately plain, single-column
+  variant for pasting into job applications or ATS uploads, since the
+  polished two-column layout can parse out of order in some tracking
+  systems.
+
+## Stack
+
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion ·
+`@react-pdf/renderer` · Zod · React Hook Form · Resend (contact form email)
+
+Deployed on Vercel; CI runs lint, a data-integrity check, and a build on
+every push via GitHub Actions.
+
+## Running locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local   # fill in values — see below
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script | What it does |
+|---|---|
+| `pnpm dev` | Local dev server at `localhost:3000` |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve the production build |
+| `pnpm lint` | ESLint |
+| `pnpm check:data` | Validates `src/lib/data.ts` for structural drift — orphaned case studies, mismatched project slugs, GitHub links pointing outside the owning account |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [`.env.example`](.env.example) for the full list with explanations.
+Nothing in this project requires a secret to run locally — the contact form
+gracefully degrades to a "not configured" message without a Resend API key.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                  Routes (App Router)
+    resume/             Resume pages + PDF routes
+    actions/contact.ts  Server Action backing the contact form
+  components/
+    sections/           One component per homepage section
+    ui/                  Shared primitives (Button, Card, Badge, ...)
+  lib/
+    data.ts              All portfolio content — projects, case studies,
+                          skills, experience — the thing to edit when
+                          anything real changes
+    github.ts            Live GitHub repo activity fetch, with a graceful
+                          fallback if the API is unreachable
+    resume-pdf*.tsx       @react-pdf/renderer document definitions
+scripts/
+  check-data-integrity.ts Structural validation, run in CI
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Keeping this honest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every time a featured project changes in a way that would make a claim on
+this site inaccurate, `src/lib/data.ts` needs a matching update. The CI data
+check catches broken links and orphaned references, not stale facts — that
+half still requires re-reading the actual source repo before editing a
+claim here.
