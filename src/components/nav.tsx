@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X, FileText } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -10,6 +10,19 @@ import { nav, profile } from "@/lib/data";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md print:hidden">
@@ -46,6 +59,7 @@ export function Nav() {
         </div>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="inline-flex items-center justify-center rounded-lg border border-border-strong p-2 text-foreground lg:hidden"
           aria-expanded={open}
