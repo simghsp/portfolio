@@ -8,7 +8,7 @@ export const profile = {
   headline: "Full-Stack Developer building toward Security Engineering.",
   github: "https://github.com/simghsp",
   githubUser: "simghsp",
-  email: "sapnasinghsp01@gamil.com",
+  email: "sapnasinghsp01@gmail.com",
   linkedin: "https://www.linkedin.com/in/sapna-singh-26a07a244/",
   location: "India",
   education: "B.Sc. Information Technology",
