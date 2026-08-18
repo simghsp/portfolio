@@ -41,14 +41,13 @@ export function About() {
               works.
             </p>
             <p>
-              I&rsquo;m not presenting myself as someone who has finished this
-              transition. I&rsquo;m early in it, and I&rsquo;m specific about what I&rsquo;ve
-              actually shipped versus what I&rsquo;m still learning (see the{" "}
+              I&rsquo;m specific about what I&rsquo;ve actually shipped versus what I&rsquo;m still building
+              toward (see the{" "}
               <a href="#roadmap" className="text-accent hover:text-accent-strong">
-                current-focus roadmap
+                roadmap
               </a>{" "}
-              below). What I can show is working code, real tests, and
-              reasoning that holds up when someone reads the source.
+              below) rather than overstating my security experience. What I can show is working
+              code, real tests, and reasoning that holds up when someone reads the source.
             </p>
           </Reveal>
 
@@ -59,8 +58,8 @@ export function About() {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground">
                 {currentRole.title} at {currentRole.company} ({currentRole.dateRange}), building
-                production applications with the MERN stack and Next.js — while specializing toward
-                Application Security in my own project time.
+                production applications with the MERN stack and Next.js — and applying
+                security-conscious practices in my own project work outside of it.
               </p>
 
               <div className="mt-6 border-t border-border pt-6">

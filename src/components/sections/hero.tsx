@@ -49,22 +49,20 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
         <div>
           <Badge variant="accent" className="mb-6">
             <ShieldCheck size={12} className="mr-1" aria-hidden="true" />
-            Junior Software Developer → Security Engineering
+            Full-Stack Developer · Security-Conscious Engineering
           </Badge>
         </div>
 
         <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-          Full-Stack Developer building toward{" "}
-          <span className="text-gradient">Security Engineering.</span>
+          Full-Stack Developer building{" "}
+          <span className="text-gradient">secure, production-ready web applications.</span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-          Currently building production applications at{" "}
-          <span className="text-foreground">Bharatron Technologies</span>. Outside that, I build
-          backend systems, APIs, and authentication flows — then spend just as much time reasoning
-          about how they fail. That path, from shipping full-stack products to hardening the access
-          control and API boundaries inside them, is what&rsquo;s pulling me toward Application
-          Security.
+          I build full-stack web applications — React/Next.js frontends, Node.js APIs, and the
+          databases behind them — with particular attention to authentication, authorization, and
+          the access-control mistakes that quietly leak one user&rsquo;s data to another. Currently a
+          Junior Software Developer at <span className="text-foreground">Bharatron Technologies</span>.
         </p>
 
         <motion.div

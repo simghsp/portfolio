@@ -1,5 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Services } from "@/components/sections/services";
+import { Process } from "@/components/sections/process";
 import { Experience } from "@/components/sections/experience";
 import { HowIThink } from "@/components/sections/how-i-think";
 import { SecurityMindset } from "@/components/sections/security-mindset";
@@ -17,6 +19,8 @@ export default function Home() {
     <>
       <Hero monthsOfExperience={getMonthsOfExperience()} />
       <About />
+      <Services />
+      <Process />
       <Experience />
       <HowIThink />
       <SecurityMindset />

@@ -93,6 +93,11 @@ export function ProjectCard({
         <p className="mt-2 text-sm leading-relaxed text-muted">{project.contribution}</p>
       </div>
 
+      <div className="mt-5 rounded-xl border border-accent/20 bg-accent-soft p-4">
+        <h4 className="mono text-xs uppercase tracking-widest text-accent-strong">Result</h4>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">{project.result}</p>
+      </div>
+
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <a
           href={project.github}

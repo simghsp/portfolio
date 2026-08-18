@@ -88,6 +88,9 @@ export type Project = {
   // and `contribution` above, rewritten as accomplishment statements
   // instead of narrative prose. Used by /resume and /resume/pdf.
   resumeBullets: string[];
+  // What actually exists at the end of the build — a capability claim, not
+  // a business metric. No invented numbers (users, revenue, uptime %).
+  result: string;
   github: string;
   status?: string;
   caseStudySlugs?: string[];
@@ -138,6 +141,8 @@ export const projects: Project[] = [
       "Defended against IDOR and user-enumeration attacks by design, via object-level authorization checks and timing-safe login comparisons",
       "Validated the full detection pipeline with 113 automated tests (unit, WAF, live integration, attack-simulation) and built a React SOC dashboard reading live from a PostgreSQL audit trail",
     ],
+    result:
+      "A fully working platform, not a mockup: a live WAF blocking real attack patterns, explainable risk scoring, and a SOC dashboard reading from a real audit trail — validated by 113 automated tests rather than claimed.",
     github: "https://github.com/simghsp/aegisflow-security-platform",
     caseStudySlugs: ["timing-safe-login", "dual-trust-domain-jwt", "object-level-authorization"],
   },
@@ -174,6 +179,8 @@ export const projects: Project[] = [
       "Implemented ownership-scoped authorization defending against broken-object-level-authorization (IDOR) — every applications query is scoped to the authenticated employer's own postings",
       "Built a resume-upload pipeline with server-side file-type/size validation and bcrypt-hashed password storage",
     ],
+    result:
+      "A working job board where an employer account can never see another employer's applicants or candidate data — the access-control boundary is enforced by design, not by convention.",
     github: "https://github.com/simghsp/jobBoard",
     caseStudySlugs: ["ownership-based-authorization"],
   },
@@ -203,6 +210,8 @@ export const projects: Project[] = [
       "Developed a full-stack MERN expense tracker with a REST API and real-time MongoDB Atlas persistence",
       "Established CRUD operations for user registration and expense logging, using environment-based configuration to keep credentials out of source control",
     ],
+    result:
+      "A working expense tracker with real-time, cloud-synced persistence — the foundational full-stack build the later security-focused projects are built on top of.",
     github: "https://github.com/simghsp/Expense-Manager-MERN",
     status: "Foundational — no authentication layer yet",
   },
@@ -237,6 +246,8 @@ export const securityLab: Project[] = [
       "Created an offline Python/Tkinter password auditing tool implementing leetspeak-aware pattern matching to defeat naive substitution bypasses in dictionary-attack defenses",
       "Generated cryptographically secure (CSPRNG) replacement passwords using Python's secrets module instead of the non-cryptographic random module",
     ],
+    result:
+      "A working, offline password-auditing tool that demonstrates practical cryptographic and pattern-detection concepts end to end, not just in theory.",
     github: "https://github.com/simghsp/password-strength-checker",
   },
 ];
@@ -423,13 +434,84 @@ export const learning = {
   github: "https://github.com/simghsp/CODSOFT",
 };
 
+export type Service = {
+  title: string;
+  description: string;
+  goodFor: string;
+};
+
+// Every service maps directly to something already shipped in a project
+// above — nothing listed here without working code behind it.
+export const services: Service[] = [
+  {
+    title: "Full-Stack Web Application Development",
+    description:
+      "Complete web applications — frontend, backend, and database — using React, Next.js, Node.js, and Express or Fastify.",
+    goodFor: "New products, internal tools, or rebuilding an existing app on a more maintainable stack.",
+  },
+  {
+    title: "Backend & API Development",
+    description:
+      "REST APIs with proper input validation, structured error handling, and middleware, built on Node.js with Express or Fastify, backed by PostgreSQL or MongoDB.",
+    goodFor: "Products that need a reliable backend for a frontend, mobile app, or third-party integration.",
+  },
+  {
+    title: "Authentication & Authorization",
+    description:
+      "JWT-based auth, role-based access control, and ownership-scoped authorization — the access-control layer that keeps one user's data from leaking to another.",
+    goodFor: "Any application with user accounts, multiple roles, or data that needs to stay scoped per user or organization.",
+  },
+  {
+    title: "Security-Conscious Application Development",
+    description:
+      "Input validation, secure password storage, audit logging, and defense against issues like IDOR and injection, built in from the start rather than added later.",
+    goodFor: "Applications handling user data or anything where an access-control mistake would be costly.",
+  },
+  {
+    title: "React / TypeScript Frontend Development",
+    description: "Type-safe, component-based frontends with React, Next.js, and Tailwind CSS.",
+    goodFor: "Dashboards, admin panels, and customer-facing web apps that need to stay maintainable as they grow.",
+  },
+];
+
+export type ProcessStep = {
+  title: string;
+  detail: string;
+};
+
+export const process: ProcessStep[] = [
+  {
+    title: "Discovery",
+    detail: "Understand the problem, the users, and what success actually looks like before writing any code.",
+  },
+  {
+    title: "Planning",
+    detail: "Define scope, data model, and architecture — including the trust boundaries, not just the feature list.",
+  },
+  {
+    title: "Development",
+    detail: "Build in small, reviewable increments, with input validation and access control as part of each feature, not an afterthought.",
+  },
+  {
+    title: "Testing",
+    detail: "Automated tests where they matter most — auth flows, access control, core logic — plus manual verification of the real user path.",
+  },
+  {
+    title: "Deployment",
+    detail: "Ship with CI, environment-based configuration, and security headers in place from day one.",
+  },
+  {
+    title: "Support",
+    detail: "Available for fixes and follow-up questions after delivery — not a handoff into silence.",
+  },
+];
+
 export const nav = [
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
-  { label: "Security", href: "#security-mindset" },
   { label: "Projects", href: "#projects" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Security Lab", href: "#security-lab" },
+  { label: "Security", href: "#security-mindset" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
