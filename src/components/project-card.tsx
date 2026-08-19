@@ -117,6 +117,13 @@ export function ProjectCard({
             <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         ) : null}
+        <a
+          href="#contact"
+          className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-strong"
+        >
+          Need something similar? Let&rsquo;s talk
+          <ArrowUpRight size={14} aria-hidden="true" />
+        </a>
       </div>
     </Card>
   );

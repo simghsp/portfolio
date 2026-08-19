@@ -464,13 +464,25 @@ export const services: Service[] = [
   {
     title: "Security-Conscious Application Development",
     description:
-      "Input validation, secure password storage, audit logging, and defense against issues like IDOR and injection, built in from the start rather than added later.",
+      "Input validation, secure password storage, audit logging, and defense against access-control and injection vulnerabilities — the kind of gaps that let one user see another's data or let malicious input reach the database — built in from the start rather than added later.",
     goodFor: "Applications handling user data or anything where an access-control mistake would be costly.",
   },
   {
     title: "React / TypeScript Frontend Development",
     description: "Type-safe, component-based frontends with React, Next.js, and Tailwind CSS.",
     goodFor: "Dashboards, admin panels, and customer-facing web apps that need to stay maintainable as they grow.",
+  },
+  {
+    title: "Admin & Operations Dashboards",
+    description:
+      "Internal dashboards for teams that need visibility into what an application is actually doing — built with real role-gating, not just a UI wrapped around a database (as shipped in AegisFlow's SOC dashboard).",
+    goodFor: "Internal tools, ops consoles, or any product that needs a separate, permission-gated view for staff or admins.",
+  },
+  {
+    title: "Performance Optimization",
+    description:
+      "Diagnosing why a page actually loads slowly — render-blocking scripts, hydration delays, oversized assets — and fixing the real bottleneck instead of guessing.",
+    goodFor: "Existing sites or apps with slow page loads or a poor Core Web Vitals / Lighthouse score.",
   },
 ];
 

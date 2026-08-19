@@ -62,7 +62,8 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
           I build full-stack web applications — React/Next.js frontends, Node.js APIs, and the
           databases behind them — with particular attention to authentication, authorization, and
           the access-control mistakes that quietly leak one user&rsquo;s data to another. Currently a
-          Junior Software Developer at <span className="text-foreground">Bharatron Technologies</span>.
+          Junior Software Developer at <span className="text-foreground">Bharatron Technologies</span>,
+          and open to select freelance or contract projects alongside that role.
         </p>
 
         <motion.div

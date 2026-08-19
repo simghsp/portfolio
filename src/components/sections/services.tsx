@@ -1,10 +1,10 @@
-import { Code2, KeyRound, Layers, ShieldCheck, Server } from "lucide-react";
+import { Code2, KeyRound, Layers, ShieldCheck, Server, LayoutDashboard, Zap } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { services } from "@/lib/data";
 
-const icons = [Layers, Server, KeyRound, ShieldCheck, Code2];
+const icons = [Layers, Server, KeyRound, ShieldCheck, Code2, LayoutDashboard, Zap];
 
 export function Services() {
   return (
@@ -14,7 +14,7 @@ export function Services() {
           <SectionHeading
             kicker="What I Build"
             title="Services"
-            description="Each of these maps to a project further down this page — nothing listed here without working code behind it."
+            description="Each of these maps to a project further down this page — nothing listed here without working code behind it. Best fit: teams building or maintaining a web application with real user accounts, more than one permission level, or data that needs to stay properly access-controlled."
           />
         </Reveal>
 

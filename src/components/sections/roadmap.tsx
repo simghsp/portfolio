@@ -22,9 +22,9 @@ export function Roadmap() {
       <Container>
         <Reveal>
           <SectionHeading
-            kicker="Current Focus"
-            title="Where I am, honestly"
-            description="I'm not claiming mastery of areas I'm still learning. This is the real progression, in order."
+            kicker="Focus & Trajectory"
+            title="Shipped today, sharpening tomorrow"
+            description="Full-stack development and authentication/authorization are shipped, production-tested skills, not aspirations. Application security engineering is where most of my current effort goes — the stages below show that progression honestly, not as a claim of mastery I don't have yet."
           />
         </Reveal>
 

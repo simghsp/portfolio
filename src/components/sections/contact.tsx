@@ -56,8 +56,8 @@ export function Contact() {
         <Reveal>
           <SectionHeading
             kicker="Contact"
-            title="Let's talk about a role, a project, or a security finding"
-            description="Open to Application Security, Backend, and Full-Stack roles. I read every message myself."
+            title="Have a project in mind? Let's talk."
+            description={`I read every message myself, and I'm open to select freelance or contract projects alongside my full-time role. Reach out about a project you're building, a technical question, or a full-stack/backend opportunity. Based in ${profile.location}.`}
           />
         </Reveal>
 
