@@ -1,6 +1,5 @@
 import { Code2, Crosshair, Microscope, ShieldCheck } from "lucide-react";
-import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { SubsectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 
 const stages = [
@@ -28,17 +27,16 @@ const stages = [
 
 export function HowIThink() {
   return (
-    <section className="border-t border-border py-24 sm:py-28" aria-label="How I approach engineering">
-      <Container>
+    <div>
         <Reveal>
-          <SectionHeading
+          <SubsectionHeading
             kicker="How I Think"
             title="Build → Break → Analyze → Secure"
             description="The same loop I used to build AegisFlow's detection pipeline is how I approach any backend feature: assume it will be attacked, and design like it."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stages.map((stage, i) => {
             const Icon = stage.icon;
             return (
@@ -67,7 +65,6 @@ export function HowIThink() {
             );
           })}
         </div>
-      </Container>
-    </section>
+    </div>
   );
 }

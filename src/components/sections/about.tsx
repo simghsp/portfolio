@@ -42,11 +42,7 @@ export function About() {
             </p>
             <p>
               I&rsquo;m specific about what I&rsquo;ve actually shipped versus what I&rsquo;m still building
-              toward (see the{" "}
-              <a href="#roadmap" className="text-accent hover:text-accent-strong">
-                roadmap
-              </a>{" "}
-              below) rather than overstating my security experience. What I can show is working
+              toward, rather than overstating my security experience. What I can show is working
               code, real tests, and reasoning that holds up when someone reads the source.
             </p>
           </Reveal>

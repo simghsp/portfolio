@@ -8,8 +8,7 @@ import {
   ScrollText,
   Timer,
 } from "lucide-react";
-import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { SubsectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 
 const concepts = [
@@ -65,17 +64,16 @@ const concepts = [
 
 export function SecurityMindset() {
   return (
-    <section id="security-mindset" className="border-t border-border py-24 sm:py-28" aria-label="Security mindset">
-      <Container>
+    <div>
         <Reveal>
-          <SectionHeading
+          <SubsectionHeading
             kicker="Security Mindset"
             title="Engineering with security as a first-class requirement"
-            description="Every concept below is backed by working code — the projects and case studies further down this page show exactly where."
+            description="Every concept below is backed by working code — the projects and case studies above show exactly where."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {concepts.map((concept, i) => {
             const Icon = concept.icon;
             return (
@@ -91,7 +89,6 @@ export function SecurityMindset() {
             );
           })}
         </div>
-      </Container>
-    </section>
+    </div>
   );
 }

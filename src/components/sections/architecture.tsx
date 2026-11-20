@@ -2,8 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Database, LayoutDashboard, Server, ShieldHalf, Users } from "lucide-react";
-import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { SubsectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";
 
@@ -20,10 +19,9 @@ export function Architecture() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="border-t border-border py-24 sm:py-28" aria-label="Architecture visualization">
-      <Container>
+    <div>
         <Reveal>
-          <SectionHeading
+          <SubsectionHeading
             kicker="Security Architecture"
             title="AegisFlow — request flow"
             description="The actual pipeline every request passes through, taken directly from the codebase — not an illustrative diagram."
@@ -31,7 +29,7 @@ export function Architecture() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-border bg-surface/40 p-6 sm:p-8">
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-border bg-surface/40 p-6 sm:p-8">
             <div className="flex min-w-295 flex-col gap-8">
               {/* top row: client -> gateway pipeline -> api */}
               <div className="flex items-center gap-3">
@@ -89,8 +87,7 @@ export function Architecture() {
           Risk levels map directly to the response decision — documented, not learned, and never claimed
           to be a calibrated probability of maliciousness.
         </p>
-      </Container>
-    </section>
+    </div>
   );
 }
 

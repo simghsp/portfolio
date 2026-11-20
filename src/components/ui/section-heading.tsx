@@ -43,3 +43,25 @@ export function SectionHeading({
     </div>
   );
 }
+
+export function SubsectionHeading({
+  kicker,
+  title,
+  description,
+  className,
+}: {
+  kicker: string;
+  title: string;
+  description?: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("max-w-2xl", className)}>
+      <SectionKicker className="mb-3">{kicker}</SectionKicker>
+      <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">{title}</h3>
+      {description ? (
+        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">{description}</p>
+      ) : null}
+    </div>
+  );
+}
