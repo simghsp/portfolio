@@ -519,7 +519,6 @@ export const process: ProcessStep[] = [
 ];
 
 export const nav = [
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Work", href: "#projects" },
   { label: "Security", href: "#security" },

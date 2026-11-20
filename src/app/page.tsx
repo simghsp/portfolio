@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
 import { Services } from "@/components/sections/services";
 import { Work } from "@/components/sections/work";
 import { Security } from "@/components/sections/security";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <Hero monthsOfExperience={getMonthsOfExperience()} />
-      <About />
       <Services />
       <Work />
       <Security />

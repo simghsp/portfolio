@@ -66,6 +66,15 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
           and open to select freelance or contract projects alongside that role.
         </p>
 
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+          Every backend feature I shipped kept raising the same question:{" "}
+          <em className="text-foreground">
+            who is allowed to do this, and what happens if they aren&rsquo;t?
+          </em>{" "}
+          That&rsquo;s why I built AegisFlow from scratch — a detection and response pipeline with
+          real tests, a real audit trail, and documented limitations.
+        </p>
+
         <motion.div
           {...fadeUp(0.16)}
           className="mt-10 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 border-y border-border py-6 sm:grid-cols-4 sm:gap-x-8"
