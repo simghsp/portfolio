@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Mail, ShieldCheck } from "lucide-react";
+import { ArrowRight, CalendarDays, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -94,13 +94,13 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
         </motion.div>
 
         <motion.div {...fadeUp(0.28)} className="mt-10 flex flex-wrap gap-3">
-          <Button href="#projects">
+          <Button href="#contact">
+            <CalendarDays size={15} aria-hidden="true" />
+            Book a call
+          </Button>
+          <Button href="#projects" variant="secondary">
             View Projects
             <ArrowRight size={15} aria-hidden="true" />
-          </Button>
-          <Button href="#contact" variant="secondary">
-            <Mail size={15} aria-hidden="true" />
-            Contact Me
           </Button>
           <Button href={profile.github} external variant="ghost">
             <GithubIcon size={15} />
