@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Download, Layers } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning, certificates } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume (ATS-friendly)",
@@ -55,11 +55,7 @@ export default function AtsResumePage() {
             Summary
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted print:text-[#222]">
-            Junior Software Developer at Bharatron Technologies, building production web
-            applications with the MERN stack, TypeScript, and Next.js. Specializing toward
-            Application Security — built AegisFlow, a working API threat-detection gateway with a
-            WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
-            automated tests.
+            {profile.summary}
           </p>
 
           <h2 className="mt-7 text-sm font-bold uppercase tracking-wide text-foreground print:text-[#111318]">
@@ -128,6 +124,17 @@ export default function AtsResumePage() {
           <p className="mt-2 text-sm text-muted print:text-[#333]">
             {learning.title} — {learning.detail}
           </p>
+
+          <h2 className="mt-7 text-sm font-bold uppercase tracking-wide text-foreground print:text-[#111318]">
+            Certificates
+          </h2>
+          <ul className="mt-2 space-y-1.5">
+            {certificates.map((c) => (
+              <li key={c.title} className="text-sm text-muted print:text-[#333]">
+                {c.title} — {c.issuer} ({c.date}). {c.detail}
+              </li>
+            ))}
+          </ul>
         </article>
 
         <p className="mt-6 flex items-center gap-2 text-xs text-muted-dim print:hidden">

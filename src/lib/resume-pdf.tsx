@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning, certificates } from "@/lib/data";
 
 // "Helvetica" is one of @react-pdf/renderer's built-in standard PDF fonts
 // (along with Times-Roman and Courier) — no font file or registration
@@ -42,6 +42,9 @@ const styles = StyleSheet.create({
   projectHeaderRow: { flexDirection: "row", justifyContent: "space-between" },
   projectName: { fontSize: 10, fontWeight: 700 },
   projectDate: { fontSize: 8, color: mutedDim },
+  // Job titles can be long enough to collide with the date, so they take the
+  // remaining width and wrap instead.
+  jobName: { flex: 1, fontSize: 10, fontWeight: 700, marginRight: 8 },
   projectTech: { fontSize: 7.5, color: mutedDim, marginTop: 1, marginBottom: 3 },
   bulletRow: { flexDirection: "row", marginBottom: 1.5 },
   bulletMark: { width: 9, fontSize: 8.5, color: muted },
@@ -88,17 +91,25 @@ export function ResumeDocument() {
               <Text style={styles.learningTitle}>{learning.title}</Text>
               <Text style={styles.paragraph}>{learning.detail}</Text>
             </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Certificates</Text>
+              {certificates.map((c) => (
+                <View key={c.title} style={{ marginBottom: 5 }}>
+                  <Text style={styles.learningTitle}>{c.title}</Text>
+                  <Text style={styles.paragraph}>
+                    {c.issuer} · {c.date}
+                  </Text>
+                </View>
+              ))}
+            </View>
           </View>
 
           <View style={styles.main}>
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Summary</Text>
               <Text style={styles.paragraph}>
-                Junior Software Developer at Bharatron Technologies, building production web
-                applications with the MERN stack, TypeScript, and Next.js. Specializing toward
-                Application Security — built AegisFlow, a working API threat-detection gateway with
-                a WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
-                automated tests.
+                {profile.summary}
               </Text>
             </View>
 
@@ -107,7 +118,7 @@ export function ResumeDocument() {
               {experience.map((job) => (
                 <View key={`${job.company}-${job.title}`} style={styles.projectBlock}>
                   <View style={styles.projectHeaderRow}>
-                    <Text style={styles.projectName}>
+                    <Text style={styles.jobName}>
                       {job.title} · {job.company}
                     </Text>
                     <Text style={styles.projectDate}>{job.dateRange}</Text>

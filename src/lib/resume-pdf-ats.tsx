@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning, certificates } from "@/lib/data";
 
 // Deliberately plain — single column, one font, no tables, no side-by-side
 // layout. Optimized for ATS text-extraction, not visual polish (that's
@@ -41,11 +41,7 @@ export function AtsResumeDocument() {
 
         <Text style={styles.sectionTitle}>Summary</Text>
         <Text style={styles.paragraph}>
-          Junior Software Developer at Bharatron Technologies, building production web
-          applications with the MERN stack, TypeScript, and Next.js. Specializing toward
-          Application Security — built AegisFlow, a working API threat-detection gateway with a
-          WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
-          automated tests.
+          {profile.summary}
         </Text>
 
         <Text style={styles.sectionTitle}>Experience</Text>
@@ -93,6 +89,13 @@ export function AtsResumeDocument() {
         <Text style={styles.paragraph}>
           {learning.title} — {learning.detail}
         </Text>
+
+        <Text style={styles.sectionTitle}>Certificates</Text>
+        {certificates.map((c) => (
+          <Text key={c.title} style={styles.paragraph}>
+            {c.title} — {c.issuer} ({c.date}). {c.detail}
+          </Text>
+        ))}
       </Page>
     </Document>
   );

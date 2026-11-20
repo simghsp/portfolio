@@ -5,7 +5,7 @@ import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { profile, experience, projects, securityLab, skills, learning } from "@/lib/data";
+import { profile, experience, projects, securityLab, skills, learning, certificates } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -107,6 +107,24 @@ export default function ResumePage() {
                   {learning.detail}
                 </p>
               </section>
+
+              <section>
+                <h2 className="mono text-xs font-semibold uppercase tracking-widest text-muted-dim print:text-[#666]">
+                  Certificates
+                </h2>
+                <ul className="mt-3 space-y-3">
+                  {certificates.map((c) => (
+                    <li key={c.title}>
+                      <p className="text-[13px] font-semibold text-foreground print:text-[#111318]">
+                        {c.title}
+                      </p>
+                      <p className="mt-0.5 text-[13px] text-muted print:text-[#333]">
+                        {c.issuer} · {c.date}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </aside>
 
             {/* Main column */}
@@ -116,11 +134,7 @@ export default function ResumePage() {
                   Summary
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted print:text-[#222]">
-                  Junior Software Developer at Bharatron Technologies, building production web
-                  applications with the MERN stack, TypeScript, and Next.js. Specializing toward
-                  Application Security — built AegisFlow, a working API threat-detection gateway with
-                  a WAF rule engine, behavioral risk scoring, and a live SOC dashboard, backed by 113
-                  automated tests.
+                  {profile.summary}
                 </p>
               </section>
 

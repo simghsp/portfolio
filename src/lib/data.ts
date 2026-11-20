@@ -11,6 +11,9 @@ export const profile = {
   email: "sapnasinghsp01@gmail.com",
   linkedin: "https://www.linkedin.com/in/sapna-singh-26a07a244/",
   location: "Mumbai, Maharashtra",
+  // Shared by /resume, /resume/ats and both PDFs — taken from the CV.
+  summary:
+    "Junior Software Developer at Bharatron Technologies building production web applications with React, Next.js, TypeScript and Node.js. Built a bilingual (English/Hindi) fintech website on my own that scores 100 for Lighthouse Accessibility, Best Practices and SEO, and fixed live production issues on e-commerce and ride-booking platforms. B.Sc IT graduate with hands-on fintech experience (UPI, AEPS, DMT, BBPS, Payin, Payout) and a focus on accessible, secure and well-tested code.",
   education:
     "B.Sc. Information Technology (2023–2026), Vivekanand Education Society's College of Arts, Science and Commerce (Autonomous), Mumbai",
   // One-line scan strip for the resume, under the name/headline — every
@@ -536,6 +539,28 @@ export const learning = {
     "Project-based virtual internship: five self-contained Python programs (To-Do list, calculator, password generator, Rock-Paper-Scissors, contact book) covering core programming and CLI application structure.",
   github: "https://github.com/simghsp/CODSOFT",
 };
+
+export type Certificate = {
+  title: string;
+  issuer: string;
+  date: string;
+  detail: string;
+};
+
+export const certificates: Certificate[] = [
+  {
+    title: "Web Development (Front-End)",
+    issuer: "SVG SDI Skill Development Institute",
+    date: "Feb 2026",
+    detail: "Built three responsive websites with HTML, CSS, JavaScript and Bootstrap.",
+  },
+  {
+    title: "Deloitte Australia Data Analytics Job Simulation",
+    issuer: "Forage",
+    date: "Jan 2026",
+    detail: "Analysed data with Excel and built a Tableau dashboard to draw business conclusions.",
+  },
+];
 
 export type Service = {
   title: string;
