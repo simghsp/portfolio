@@ -13,12 +13,12 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#06080d",
+          background: "#050914",
           borderRadius: 7,
           fontFamily: "sans-serif",
         }}
       >
-        <span style={{ color: "#4dd6e0", fontSize: 20, fontWeight: 700 }}>S</span>
+        <span style={{ color: "#3b82ff", fontSize: 20, fontWeight: 700 }}>S</span>
       </div>
     ),
     { ...size }

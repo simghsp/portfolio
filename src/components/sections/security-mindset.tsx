@@ -65,30 +65,36 @@ const concepts = [
 export function SecurityMindset() {
   return (
     <div>
-        <Reveal>
-          <SubsectionHeading
-            kicker="Security Mindset"
-            title="Engineering with security as a first-class requirement"
-            description="Every concept below is backed by working code — the projects and case studies above show exactly where."
-          />
-        </Reveal>
+      <Reveal>
+        <SubsectionHeading
+          kicker="Security Mindset"
+          title="Engineering with security as a first-class requirement"
+          description="Every concept below is backed by working code — the projects and case studies above show exactly where."
+        />
+      </Reveal>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {concepts.map((concept, i) => {
-            const Icon = concept.icon;
-            return (
-              <Reveal key={concept.title} delay={(i % 4) * 0.06}>
-                <div className="h-full rounded-2xl border border-border bg-surface/60 p-5 transition-colors hover:border-accent/30">
-                  <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border-strong text-accent">
-                    <Icon size={16} aria-hidden="true" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-foreground">{concept.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{concept.detail}</p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+      <dl className="mt-10 grid gap-x-12 sm:grid-cols-2">
+        {concepts.map((concept, i) => {
+          const Icon = concept.icon;
+          return (
+            <Reveal
+              key={concept.title}
+              delay={(i % 2) * 0.05}
+              className="group grid grid-cols-[auto_1fr] gap-x-4 border-t border-border py-5"
+            >
+              <Icon
+                size={18}
+                aria-hidden="true"
+                className="mt-0.5 text-muted-dim transition-colors duration-300 group-hover:text-accent"
+              />
+              <div>
+                <dt className="text-base font-semibold text-foreground">{concept.title}</dt>
+                <dd className="mt-1.5 text-sm leading-relaxed text-muted">{concept.detail}</dd>
+              </div>
+            </Reveal>
+          );
+        })}
+      </dl>
     </div>
   );
 }

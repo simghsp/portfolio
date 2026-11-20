@@ -9,18 +9,19 @@ type CommonProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors duration-150 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50";
+  "group/btn inline-flex items-center justify-center gap-2 rounded-full font-medium transition-[color,background-color,border-color,box-shadow,transform] duration-200 active:scale-[0.97] focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:transition-transform [&_svg]:duration-200 hover:[&_svg:last-child]:translate-x-0.5";
 
 const variants: Record<NonNullable<CommonProps["variant"]>, string> = {
-  primary: "bg-accent text-[#06080d] hover:bg-accent-strong",
+  primary:
+    "bg-accent text-white shadow-[0_0_0_1px_rgba(127,176,255,0.35)_inset] hover:bg-[#5294ff] hover:shadow-[0_8px_30px_-8px_rgba(59,130,255,0.7)]",
   secondary:
     "bg-surface text-foreground border border-border-strong hover:border-accent/50 hover:bg-surface-hover",
   ghost: "bg-transparent text-muted hover:text-foreground hover:bg-surface",
 };
 
 const sizes: Record<NonNullable<CommonProps["size"]>, string> = {
-  sm: "px-3.5 py-2 text-sm",
-  md: "px-5 py-2.5 text-sm",
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3 text-sm",
 };
 
 export function Button({

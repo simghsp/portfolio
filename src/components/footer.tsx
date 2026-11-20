@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-border print:hidden">
       <Container className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="mono text-sm font-semibold text-foreground">
+          <p className="display text-base font-bold text-foreground">
             sapna<span className="text-accent">.</span>singh
           </p>
           <p className="mt-1 text-sm text-muted-dim">
@@ -18,7 +18,7 @@ export function Footer() {
 
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted" aria-label="Footer">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-foreground">
+            <a key={item.href} href={item.href} className="link-grow hover:text-foreground">
               {item.label}
             </a>
           ))}
@@ -52,6 +52,11 @@ export function Footer() {
           </a>
         </div>
       </Container>
+      <div className="mx-auto w-full max-w-6xl overflow-hidden px-5 sm:px-8" aria-hidden="true">
+        <p className="display translate-y-[18%] text-center text-[17vw] leading-none font-extrabold text-surface-hover select-none lg:text-[11.5rem]">
+          sapna singh
+        </p>
+      </div>
       <Container className="border-t border-border py-5">
         <p className="text-xs text-muted-dim">
           © {new Date().getFullYear()} Sapna Singh. Built with Next.js and Tailwind CSS.

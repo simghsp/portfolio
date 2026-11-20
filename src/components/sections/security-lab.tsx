@@ -1,7 +1,6 @@
-import { FlaskConical } from "lucide-react";
 import { SubsectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectShowcase } from "@/components/project-showcase";
 import { getRepoActivity } from "@/lib/github";
 import { securityLab } from "@/lib/data";
 
@@ -10,24 +9,17 @@ export async function SecurityLab() {
 
   return (
     <div id="security-lab" className="scroll-mt-24">
-        <Reveal>
-          <div className="mb-2 inline-flex items-center gap-2 text-accent">
-            <FlaskConical size={16} aria-hidden="true" />
-          </div>
-          <SubsectionHeading
-            kicker="Security Research / Labs"
-            title="Security Lab"
-            description="Smaller, focused projects built specifically to understand a security concept end-to-end — separate from production application work."
-          />
-        </Reveal>
+      <Reveal>
+        <SubsectionHeading
+          kicker="Security Research / Labs"
+          title="Security Lab"
+          description="Smaller, focused projects built specifically to understand a security concept end-to-end — separate from production application work."
+        />
+      </Reveal>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {securityLab.map((project, i) => (
-            <Reveal key={project.slug}>
-              <ProjectCard project={project} featured activity={activity[i]} />
-            </Reveal>
-          ))}
-        </div>
+      <Reveal delay={0.05} className="mt-10">
+        <ProjectShowcase projects={securityLab} activity={activity} />
+      </Reveal>
     </div>
   );
 }

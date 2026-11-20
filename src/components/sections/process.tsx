@@ -1,14 +1,11 @@
-import { Search, ClipboardList, Code2, FlaskConical, Rocket, LifeBuoy } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { process } from "@/lib/data";
 
-const icons = [Search, ClipboardList, Code2, FlaskConical, Rocket, LifeBuoy];
-
 export function Process() {
   return (
-    <section className="border-t border-border py-24 sm:py-28" aria-label="Development process">
+    <section className="border-t border-border py-24 sm:py-32" aria-label="Development process">
       <Container>
         <Reveal>
           <SectionHeading
@@ -18,22 +15,22 @@ export function Process() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {process.map((step, i) => {
-            const Icon = icons[i];
-            return (
-              <Reveal key={step.title} delay={(i % 3) * 0.06}>
-                <div className="relative h-full rounded-2xl border border-border bg-surface/60 p-6">
-                  <div className="mono mb-4 text-xs text-muted-dim">0{i + 1}</div>
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent/30 bg-accent-soft text-accent">
-                    <Icon size={18} aria-hidden="true" />
-                  </div>
-                  <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{step.detail}</p>
-                </div>
-              </Reveal>
-            );
-          })}
+        <div className="relative mt-16">
+          <span
+            className="absolute top-[1.1rem] right-0 left-0 hidden h-px bg-border-strong lg:block"
+            aria-hidden="true"
+          />
+          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+          {process.map((step, i) => (
+            <Reveal as="li" key={step.title} delay={i * 0.06} className="group relative">
+                <span className="mono relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-strong bg-background text-xs text-muted transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="display mt-5 text-lg font-bold text-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{step.detail}</p>
+            </Reveal>
+          ))}
+          </ol>
         </div>
       </Container>
     </section>

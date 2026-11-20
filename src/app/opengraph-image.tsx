@@ -15,10 +15,10 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          backgroundColor: "#06080d",
+          backgroundColor: "#050914",
           backgroundImage:
-            "radial-gradient(600px 320px at 15% 0%, rgba(77,214,224,0.25), transparent 70%)",
-          color: "#e8ecf4",
+            "radial-gradient(600px 320px at 15% 0%, rgba(59,130,255,0.22), transparent 70%)",
+          color: "#eef2fb",
           fontFamily: "sans-serif",
         }}
       >
@@ -27,19 +27,19 @@ export default async function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 10,
-            color: "#4dd6e0",
+            color: "#3b82ff",
             fontSize: 22,
             letterSpacing: 4,
             textTransform: "uppercase",
           }}
         >
-          <div style={{ width: 24, height: 2, background: "#4dd6e0" }} />
+          <div style={{ width: 24, height: 2, background: "#3b82ff" }} />
           Junior Software Developer → Security Engineering
         </div>
         <div style={{ fontSize: 68, fontWeight: 700, marginTop: 28, lineHeight: 1.15 }}>
           {siteConfig.name}
         </div>
-        <div style={{ fontSize: 30, color: "#8b93a7", marginTop: 20, maxWidth: 900 }}>
+        <div style={{ fontSize: 30, color: "#94a0bd", marginTop: 20, maxWidth: 900 }}>
           Full-Stack Developer building toward Security Engineering
         </div>
         <div style={{ display: "flex", gap: 12, marginTop: 44 }}>
@@ -50,8 +50,8 @@ export default async function OpengraphImage() {
                 fontSize: 20,
                 padding: "8px 18px",
                 borderRadius: 999,
-                border: "1px solid #2a3348",
-                color: "#8b93a7",
+                border: "1px solid #26355c",
+                color: "#94a0bd",
               }}
             >
               {tag}

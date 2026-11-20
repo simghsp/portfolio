@@ -16,12 +16,13 @@ export function CaseStudies() {
           />
         </Reveal>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-10 border-t border-border">
           {caseStudies.map((study, i) => (
             <Reveal key={study.slug} delay={i * 0.04}>
               <CaseStudyCard
                 study={study}
                 project={allProjects.find((p) => p.slug === study.projectSlug)}
+                index={i}
                 defaultOpen={i === 0}
               />
             </Reveal>

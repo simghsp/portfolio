@@ -55,7 +55,7 @@ export function Architecture() {
                     ))}
                     {!reduceMotion ? (
                       <motion.span
-                        className="pointer-events-none absolute top-1/2 left-0 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-accent-strong shadow-[0_0_10px_2px_rgba(125,232,239,0.6)]"
+                        className="pointer-events-none absolute top-1/2 left-0 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-accent-strong shadow-[0_0_10px_2px_rgba(127,176,255,0.7)]"
                         animate={{ left: ["0%", "97%"] }}
                         transition={{ duration: 3.2, repeat: Infinity, ease: "linear" }}
                         aria-hidden="true"

@@ -14,7 +14,7 @@ export function SectionKicker({
         className
       )}
     >
-      <span className="h-px w-6 bg-accent/60" aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
       {children}
     </div>
   );
@@ -32,13 +32,13 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl", className)}>
+    <div className={cn("max-w-3xl", className)}>
       <SectionKicker>{kicker}</SectionKicker>
-      <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <h2 className="display text-4xl font-bold leading-[1.02] text-foreground sm:text-5xl md:text-6xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-muted">{description}</p>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{description}</p>
       ) : null}
     </div>
   );
@@ -58,7 +58,7 @@ export function SubsectionHeading({
   return (
     <div className={cn("max-w-2xl", className)}>
       <SectionKicker className="mb-3">{kicker}</SectionKicker>
-      <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">{title}</h3>
+      <h3 className="display text-2xl font-bold text-foreground sm:text-3xl">{title}</h3>
       {description ? (
         <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">{description}</p>
       ) : null}

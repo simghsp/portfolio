@@ -19,49 +19,77 @@ const fields: { key: keyof CaseStudy; label: string }[] = [
 export function CaseStudyCard({
   study,
   project,
+  index,
   defaultOpen = false,
 }: {
   study: CaseStudy;
   project?: Project;
+  index: number;
   defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
   const panelId = `case-study-${study.slug}`;
 
   return (
-    <div className="rounded-2xl border border-border bg-surface/60">
+    <div className="border-b border-border">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-start justify-between gap-4 p-6 text-left"
+        className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-6 text-left sm:grid-cols-[4rem_1fr_auto]"
       >
+        <span
+          className={cn(
+            "mono pt-1.5 text-xs transition-colors",
+            open ? "text-accent" : "text-muted-dim group-hover:text-muted"
+          )}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <div>
-          <div className="mb-2 flex flex-wrap items-center gap-2">
+          <h4
+            className={cn(
+              "display text-xl font-bold transition-colors sm:text-2xl",
+              open ? "text-foreground" : "text-muted group-hover:text-foreground"
+            )}
+          >
+            {study.title}
+          </h4>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
             <Badge variant="accent">{study.concept}</Badge>
             {project ? <Badge variant="outline">{project.name}</Badge> : null}
           </div>
-          <h3 className="text-lg font-semibold text-foreground">{study.title}</h3>
         </div>
-        <ChevronDown
-          size={18}
-          className={cn("mt-1 shrink-0 text-muted transition-transform", open && "rotate-180")}
+        <span
+          className={cn(
+            "mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300",
+            open
+              ? "rotate-180 border-accent bg-accent text-white"
+              : "border-border-strong text-muted group-hover:border-accent group-hover:text-accent"
+          )}
           aria-hidden="true"
-        />
+        >
+          <ChevronDown size={16} />
+        </span>
       </button>
 
-      <div id={panelId} hidden={!open} className="px-6 pb-6">
-        <div className="space-y-5 border-t border-border pt-5">
+      <div id={panelId} hidden={!open} className="pb-8 sm:pl-16">
+        <dl className="divide-y divide-border rounded-2xl border border-border bg-background-elevated">
           {fields.map((field) => (
-            <div key={field.key}>
-              <h4 className="mono text-xs uppercase tracking-widest text-muted-dim">
+            <div key={field.key} className="grid gap-1.5 px-5 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+              <dt
+                className={cn(
+                  "mono text-[11px] uppercase tracking-widest",
+                  field.key === "fix" || field.key === "lesson" ? "text-accent" : "text-muted-dim"
+                )}
+              >
                 {field.label}
-              </h4>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">{study[field.key]}</p>
+              </dt>
+              <dd className="text-sm leading-relaxed text-muted">{study[field.key]}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </div>
   );

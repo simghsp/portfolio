@@ -1,39 +1,43 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
 import { skills } from "@/lib/data";
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-border py-24 sm:py-28" aria-label="Technical skills">
+    <section id="skills" className="border-t border-border py-24 sm:py-32" aria-label="Technical skills">
       <Container>
         <Reveal>
           <SectionHeading
             kicker="Skills"
             title="What I actually know how to use"
-            description="Organized by category, not percentages — every item here has shipped in at least one of the projects below."
+            description="Organized by category, not percentages — every item here has shipped in at least one of the projects above."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <dl className="mt-14 border-t border-border">
           {skills.map((group, i) => (
-            <Reveal key={group.title} delay={(i % 2) * 0.08}>
-              <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-                <h3 className="mono text-xs font-medium uppercase tracking-widest text-accent">
-                  {group.title}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <Badge key={item} variant="outline">
-                      {item}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+            <Reveal
+              key={group.title}
+              delay={i * 0.04}
+              className="grid gap-4 border-b border-border py-6 sm:grid-cols-[14rem_1fr] sm:gap-8"
+            >
+              <dt className="mono text-xs font-medium uppercase tracking-widest text-accent">
+                {group.title}
+              </dt>
+              <dd className="flex flex-wrap gap-x-2 gap-y-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-border-strong px-3 py-1 text-sm text-muted transition-colors duration-200 hover:border-accent hover:text-foreground"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </dd>
             </Reveal>
           ))}
-        </div>
+        </dl>
       </Container>
     </section>
   );
