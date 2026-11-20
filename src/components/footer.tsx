@@ -9,7 +9,7 @@ export function Footer() {
       <Container className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="display text-base font-bold text-foreground">
-            sapna<span className="text-accent">.</span>singh
+            sapna<span className="text-accent">.</span>kumari
           </p>
           <p className="mt-1 text-sm text-muted-dim">
             Full-stack development, backend engineering, and a security-first mindset.
@@ -54,12 +54,12 @@ export function Footer() {
       </Container>
       <div className="mx-auto w-full max-w-6xl overflow-hidden px-5 sm:px-8" aria-hidden="true">
         <p className="display translate-y-[18%] text-center text-[17vw] leading-none font-extrabold text-surface-hover select-none lg:text-[11.5rem]">
-          sapna singh
+          sapna kumari
         </p>
       </div>
       <Container className="border-t border-border py-5">
         <p className="text-xs text-muted-dim">
-          © {new Date().getFullYear()} Sapna Singh. Built with Next.js and Tailwind CSS.
+          © {new Date().getFullYear()} Sapna Kumari. Built with Next.js and Tailwind CSS.
         </p>
       </Container>
     </footer>

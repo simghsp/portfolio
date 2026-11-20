@@ -2,15 +2,16 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "http://localhost:3000";
 
 export const siteConfig = {
-  name: "Sapna Singh",
-  title: "Sapna Singh — Full-Stack Developer building toward Security Engineering",
+  name: "Sapna Kumari",
+  title: "Sapna Kumari — Full-Stack Developer · Fintech & Secure Web Applications",
   description:
-    "Portfolio of Sapna Singh, a Junior Software Developer at Bharatron Technologies transitioning into Application Security. Projects include AegisFlow, a real API threat detection and SOC platform, plus JWT/RBAC-driven full-stack applications.",
+    "Portfolio of Sapna Kumari, a Junior Software Developer at Bharatron Technologies in Mumbai building fintech and payments products — a UPI payments admin panel and a bilingual fintech website — plus AegisFlow, a real API threat detection and SOC platform.",
   keywords: [
-    "Sapna Singh",
-    "Sapna Singh developer",
-    "Sapna Singh cybersecurity",
-    "Sapna Singh full stack developer",
+    "Sapna Kumari",
+    "Sapna Kumari developer",
+    "Sapna Kumari full stack developer",
+    "fintech frontend developer",
+    "UPI payments developer",
     "full stack developer cybersecurity",
     "application security developer",
     "backend security developer",

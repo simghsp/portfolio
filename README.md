@@ -1,4 +1,4 @@
-# Sapna Singh — Portfolio
+# Sapna Kumari — Portfolio
 
 Live at **[portfolio-ashy-eight-i7xe4ihgl4.vercel.app](https://portfolio-ashy-eight-i7xe4ihgl4.vercel.app)**.
 

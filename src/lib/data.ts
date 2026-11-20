@@ -4,22 +4,26 @@
 // Nothing here is invented.
 
 export const profile = {
-  name: "Sapna Singh",
-  headline: "Full-Stack Developer building toward Security Engineering.",
+  name: "Sapna Kumari",
+  headline: "Full-Stack Developer · Fintech & Secure Web Applications",
   github: "https://github.com/simghsp",
   githubUser: "simghsp",
   email: "sapnasinghsp01@gmail.com",
   linkedin: "https://www.linkedin.com/in/sapna-singh-26a07a244/",
-  location: "India",
-  education: "B.Sc. Information Technology",
+  location: "Mumbai, Maharashtra",
+  education:
+    "B.Sc. Information Technology (2023–2026), Vivekanand Education Society's College of Arts, Science and Commerce (Autonomous), Mumbai",
   // One-line scan strip for the resume, under the name/headline — every
   // term here is directly backed by a project below, not aspirational.
   coreCompetencies: [
+    "Fintech & Payments (UPI, AEPS, DMT, BBPS)",
     "Application Security",
     "API Security (OWASP Top 10)",
     "Authentication & Authorization (JWT/RBAC)",
     "Secure Backend Architecture",
-    "Full-Stack Development (React, Node.js, Python)",
+    "Full-Stack Development (React, Next.js, Node.js)",
+    "Testing (Vitest, React Testing Library, Playwright)",
+    "Accessibility (WCAG AA) & Technical SEO",
   ],
 };
 
@@ -44,7 +48,13 @@ export const experience: ExperienceEntry[] = [
     startDate: "2026-05-06",
     endDate: null,
     bullets: [
-      "Contributing to production web applications using the MERN stack, TypeScript, Next.js, and Tailwind CSS",
+      "Bharatron Money website: built the complete frontend independently with Next.js 15, React 19, TypeScript, Tailwind CSS 4 and next-intl — 40+ pages in English and Hindi, with type-checked translations",
+      "Scored 100 for Accessibility, Best Practices and SEO on Google Lighthouse (mobile) via technical SEO (hreflang, JSON-LD, sitemaps, OG images) and WCAG AA accessibility",
+      "BharatronPay Admin (UPI payments admin panel): built the Dashboard, Merchants (KYB review), Disputes, Risk & Fraud and Reconciliation modules plus the shared design system (React 19, TypeScript, Ant Design); wired 12/12 backend APIs, wrote 287 unit tests (Vitest, React Testing Library), passed 257 browser checks and completed a frontend VAPT-readiness security review",
+      "RideX: built the Customer, Driver-Partner and Admin apps in a pnpm + Turborepo monorepo with JWT + OTP auth and Socket.IO live ride tracking",
+      "BharatronCart: diagnosed and fixed 5 production incidents — including a login-timer bug that locked customers out for ~4 hours instead of 15 minutes — and added the legal policy pages module",
+      "Food delivery platform: hardened security by fixing 6/6 critical and high authentication findings (privilege escalation, IDOR, unauthenticated uploads)",
+      "Fintech white-label platform: tested AEPS, DMT, BBPS, Payin, Payout and settlement flows end to end across Master, Admin and Merchant panels, verified a 6-feature release (incl. 2FA) and reported root causes of integration bugs to the senior team",
     ],
   },
   {
@@ -54,8 +64,74 @@ export const experience: ExperienceEntry[] = [
     startDate: "2026-02-04",
     endDate: "2026-04-10",
     bullets: [
-      "Contributed to production-level applications built with the MERN stack and TypeScript",
+      "Contributed to the HR Portal and Scholarship Website, both live and deployed in production",
     ],
+  },
+];
+
+export type ProfessionalWork = {
+  name: string;
+  domain: string;
+  summary: string;
+  // One headline number per project, taken verbatim from the CV.
+  metric: { value: string; label: string };
+  stack: string[];
+  url?: string;
+};
+
+// Employer projects at Bharatron Technologies — no public repos, so these
+// live here instead of in `projects` (which the data-integrity check requires
+// to link to a public GitHub repo).
+export const professionalWork: ProfessionalWork[] = [
+  {
+    name: "BharatronPay Admin",
+    domain: "Fintech · UPI payments",
+    summary:
+      "UPI payments admin panel: built the Dashboard, Merchants (KYB review), Disputes, Risk & Fraud and Reconciliation modules plus the shared design system. Wired 12/12 backend APIs, passed 257 browser checks and completed a frontend VAPT-readiness security review.",
+    metric: { value: "287", label: "unit tests written" },
+    stack: ["React 19", "TypeScript", "Ant Design", "Vitest", "React Testing Library"],
+  },
+  {
+    name: "Bharatron Money",
+    domain: "Fintech · Bilingual website",
+    summary:
+      "Built the complete frontend independently: 40+ pages in English and Hindi with type-checked translations, technical SEO (hreflang, JSON-LD, sitemaps, OG images) and WCAG AA accessibility.",
+    metric: { value: "100", label: "Lighthouse Accessibility, Best Practices & SEO" },
+    stack: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "next-intl"],
+  },
+  {
+    name: "Fintech white-label platform",
+    domain: "Fintech · AEPS, DMT, BBPS",
+    summary:
+      "Tested AEPS, DMT, BBPS, Payin, Payout and settlement flows end to end across the Master, Admin and Merchant panels, verified a release including 2FA, and reported root causes of integration bugs to the senior team.",
+    metric: { value: "6", label: "features verified in one release" },
+    stack: ["End-to-end testing", "Payments flows", "2FA"],
+  },
+  {
+    name: "RideX",
+    domain: "Mobility · Ride booking",
+    summary:
+      "Built the Customer, Driver-Partner and Admin apps in one monorepo, with JWT + OTP authentication and live ride tracking over Socket.IO.",
+    metric: { value: "3", label: "apps in one monorepo" },
+    stack: ["pnpm", "Turborepo", "JWT + OTP", "Socket.IO"],
+    url: "https://ridex.bharatrontech.com",
+  },
+  {
+    name: "BharatronCart",
+    domain: "E-commerce · Production support",
+    summary:
+      "Diagnosed and fixed production incidents, including a login-timer bug that locked customers out for ~4 hours instead of 15 minutes, and added the legal policy pages module.",
+    metric: { value: "5", label: "production incidents fixed" },
+    stack: ["Debugging", "Production support"],
+    url: "https://cart.bharatrontech.com",
+  },
+  {
+    name: "Food delivery platform",
+    domain: "Security · Authentication hardening",
+    summary:
+      "Hardened authentication by fixing every critical and high finding: privilege escalation, IDOR and unauthenticated uploads.",
+    metric: { value: "6/6", label: "critical & high auth findings fixed" },
+    stack: ["Authorization", "IDOR prevention", "Secure uploads"],
   },
 ];
 
@@ -356,15 +432,31 @@ export type SkillCategory = {
 
 export const skills: SkillCategory[] = [
   {
-    title: "Software Engineering",
-    items: ["TypeScript", "JavaScript (ES6+)", "React", "Next.js", "Node.js", "Python"],
+    title: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Redux Toolkit",
+      "Zustand",
+      "Ant Design",
+      "Tailwind CSS",
+      "Bootstrap",
+      "i18n (next-intl)",
+    ],
+  },
+  {
+    title: "Fintech & Payments",
+    items: ["UPI", "AEPS", "DMT", "BBPS", "Payin / Payout", "Settlement & reconciliation", "KYB review", "2FA"],
   },
   {
     title: "Backend & APIs",
     items: [
       "REST API design",
       "Express / Fastify",
-      "JWT authentication",
+      "JWT / OTP authentication",
+      "Socket.IO (real-time)",
       "Role-based authorization (RBAC)",
       "Input validation (Zod, express-validator)",
       "Middleware & error handling",
@@ -372,7 +464,7 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "Databases",
-    items: ["PostgreSQL", "Prisma ORM", "MongoDB", "Mongoose", "Redis"],
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Prisma ORM", "Mongoose", "Redis"],
   },
   {
     title: "Application Security",
@@ -386,13 +478,24 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    title: "Testing & Quality",
+    items: [
+      "Vitest",
+      "React Testing Library",
+      "Playwright",
+      "Lighthouse",
+      "WCAG AA accessibility",
+      "Technical SEO",
+    ],
+  },
+  {
     title: "Infrastructure",
     items: [
       "Docker",
       "Docker Compose",
       "Nginx",
       "CI/CD (GitHub Actions + Vercel)",
-      "pnpm workspaces (monorepo)",
+      "pnpm + Turborepo (monorepo)",
       "Git/GitHub",
     ],
   },

@@ -54,7 +54,7 @@ export function Nav() {
           className="display text-base font-bold tracking-tight text-foreground"
           onClick={() => setOpen(false)}
         >
-          sapna<span className="text-accent">.</span>singh
+          sapna<span className="text-accent">.</span>kumari
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">

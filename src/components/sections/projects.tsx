@@ -11,8 +11,8 @@ export async function Projects() {
     <div>
       <Reveal>
         <SubsectionHeading
-          kicker="Production Engineering"
-          title="Projects"
+          kicker="Personal Projects"
+          title="Built on my own time"
           description="Full-stack applications with real backends, real databases, and real authorization logic — ranked by depth, not stars. Pick one to open it."
         />
       </Reveal>

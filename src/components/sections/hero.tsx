@@ -6,15 +6,15 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/icons";
 import { RequestTrace } from "@/components/request-trace";
-import { profile, projects, securityLab } from "@/lib/data";
+import { profile } from "@/lib/data";
 
 const coreTech = ["TypeScript", "React", "Node.js", "PostgreSQL", "JWT / RBAC", "API Security"];
 
 const stats = (monthsOfExperience: number) => [
   { value: `${monthsOfExperience}+`, label: "Months professional experience" },
-  { value: `${projects.length + securityLab.length}`, label: "Projects shipped" },
-  { value: "113", label: "Automated tests (AegisFlow)" },
-  { value: "8", label: "OWASP-mapped WAF rule families" },
+  { value: "100", label: "Lighthouse a11y, best practices & SEO" },
+  { value: "287", label: "Unit tests on a UPI admin panel" },
+  { value: "6/6", label: "Critical & high auth findings fixed" },
 ];
 
 export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
@@ -62,8 +62,9 @@ export function Hero({ monthsOfExperience }: { monthsOfExperience: number }) {
               I build full-stack web applications — React/Next.js frontends, Node.js APIs, and the
               databases behind them — with particular attention to authentication, authorization, and
               the access-control mistakes that quietly leak one user&rsquo;s data to another. Currently a
-              Junior Software Developer at <span className="text-foreground">Bharatron Technologies</span>,
-              and open to select freelance or contract projects alongside that role.
+              Junior Software Developer at <span className="text-foreground">Bharatron Technologies</span>{" "}
+              in Mumbai, building fintech products — a UPI payments admin panel and a bilingual fintech
+              website — and open to select freelance or contract projects alongside that role.
             </p>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
